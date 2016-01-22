@@ -4,5 +4,6 @@ setlocal softtabstop=4
 setlocal expandtab
 filetype indent on
 imap jk <Esc>
+imap kj <Esc>
 set number
 highlight LineNr ctermfg=white
