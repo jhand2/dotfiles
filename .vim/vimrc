@@ -13,4 +13,4 @@ set number
 highlight LineNr ctermfg=white
 
 "Adds indent when { + ENTER is pressed. Also closes curly brace
-inoremap {<CR> {<CR>}<C-o>O
+"inoremap {<CR> {<CR>}<C-o>O
