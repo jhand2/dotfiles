@@ -65,7 +65,15 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u: \[\033[01;34m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+    wo_host='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u'
+    host='@\[\e[1;94m\]\h'
+    path_and_branch=':\[\033[01;94m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+    if [ "$(hostname)" = "jordan-laptop" ]; then
+        PS1="$wo_host$path_and_branch"
+    else
+        PS1="$wo_host$host$path_and_branch"
+    fi
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\e[1;94m\]\h:\[\033[01;94m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$(parse_git_branch)\$ '
 fi
@@ -121,8 +129,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [ "$(hostname)" = "jordan-laptop" ]; then
+    ## Added by the Heroku Toolbelt
+    export PATH="/usr/local/heroku/bin:$PATH"
 
-VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3' # This needs to be placed before the virtualenvwrapper command
-source /usr/local/bin/virtualenvwrapper.sh
+    # This needs to be placed before the virtualenvwrapper command
+    VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
