@@ -66,7 +66,7 @@ parse_git_branch() {
 
 if [ "$color_prompt" = yes ]; then
     wo_host='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u'
-    host='@\[\e[1;95m\]\h'
+    host='@\[\033[1;35m\]\h'
     path_and_branch=':\[\033[01;94m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\] \$ '
     if [ "$(hostname)" = "jordan-laptop" ]; then
         PS1="$wo_host$path_and_branch"
