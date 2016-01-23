@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/jordan/side-projects/quickchat-server'
 let g:netrw_dirhist_2='/home/jordan/nordstrom-project'
 let g:netrw_dirhist_3='/home/jordan/class/cse374/hw2'
+let g:netrw_dirhist_4='/home/jordan/class/cse374'
