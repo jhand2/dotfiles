@@ -4,9 +4,8 @@ setlocal softtabstop=4
 setlocal expandtab
 filetype indent on
 
-"Maps jk and kj to Escape for faster mode switching 
+"Maps jk to Escape for faster mode switching 
 imap jk <Esc>
-imap kj <Esc>
 
 let mapleader=","
 
