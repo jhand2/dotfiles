@@ -1,8 +1,25 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+
+map <C-n> :NERDTreeToggle<CR>
+
 "Configures tab behavior setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal softtabstop=4
-setlocal expandtab
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 filetype indent on
+
+set scrolloff=5
 
 "Maps jk to Escape for faster mode switching 
 imap jk <Esc>
@@ -14,7 +31,15 @@ set number
 highlight LineNr ctermfg=white
 
 "Adds indent when { + ENTER is pressed. Also closes curly brace
-"inoremap {<CR> {<CR>}<C-o>O
+inoremap {<CR> {<CR>}<C-o>O
+
+"reconfigure vim window behavior
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
 filetype plugin on
 
@@ -22,11 +47,13 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-"set background=dark
+"VIM theme
+set background=dark
 syntax enable
 let g:rehash256 = 1
-colorscheme molokai
+colorscheme molokai256
 
+"ctrl+shift+P shows the label for given syntax (i.e. cBlock)
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
     if !exists("*synstack")
@@ -34,3 +61,5 @@ function! <SID>SynStack()
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+
