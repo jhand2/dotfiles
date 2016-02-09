@@ -72,9 +72,7 @@ set splitright
 
 filetype plugin on
 
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+set t_Co=256
 
 "VIM theme
 set background=dark
