@@ -8,8 +8,30 @@ call vundle#begin()
 "Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'scrooloose/syntastic'
+Plugin 'klen/python-mode'
 call vundle#end()
+
+" Python mode config
+let g:pymode_rope = 1
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_folding = 0
+let g:pymode_options_colorcolumn = 0
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -19,7 +41,14 @@ set softtabstop=4
 set expandtab
 filetype indent on
 
+set cursorline
 set scrolloff=5
+
+" Turns on code folding as long as you indent your
+" code like a good little programmer
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 "Maps jk to Escape for faster mode switching 
 imap jk <Esc>
@@ -61,5 +90,4 @@ function! <SID>SynStack()
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
 

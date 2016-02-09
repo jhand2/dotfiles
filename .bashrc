@@ -138,3 +138,5 @@ if [ "$(hostname)" = "jordan-laptop" ]; then
 
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+export PATH=$PATH:$HOME/bin
+
