@@ -3,14 +3,18 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+call vundle#begin()
 "Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
+
+"NERDTree config
+let NERDTreeQuitOnOpen=1
+map <C-n> :NERDTreeToggle<CR>
 
 " Python mode config
 let g:pymode_rope = 1
@@ -23,21 +27,11 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 0
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-map <C-n> :NERDTreeToggle<CR>
 
 "Configures tab behavior setlocal tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
 set expandtab
 filetype indent on
 
@@ -77,8 +71,9 @@ set t_Co=256
 "VIM theme
 set background=dark
 syntax enable
-let g:rehash256 = 1
-colorscheme molokai256
+"let g:rehash256 = 1
+colorscheme monokai
+"colorscheme molokai256
 
 "ctrl+shift+P shows the label for given syntax (i.e. cBlock)
 nmap <C-S-P> :call <SID>SynStack()<CR>

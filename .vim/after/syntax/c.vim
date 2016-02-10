@@ -274,6 +274,10 @@ hi def link cFunction Function
 hi def link cIdentifier Identifier
 hi def link cDelimiter Delimiter
 " foldmethod=syntax fix, courtesy of Ivan Freitas
-hi def link cBraces Delimiter
-hi def link cBoolean Boolean
-
+"
+" User defined
+hi link cBraces Delimiter
+hi link cBoolean Boolean
+hi link cSpecial Operator
+hi link cFormat Operator
+hi link cSpecialCharacter Operator
