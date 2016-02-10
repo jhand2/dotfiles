@@ -44,6 +44,8 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
+nnoremap <silent> <F9> :!clear;python %<CR>
+
 "Maps jk to Escape for faster mode switching 
 imap jk <Esc>
 

@@ -118,3 +118,4 @@ hi Delimiter ctermfg=15
 hi javaScriptFuncKeyword ctermfg=81
 hi javaScriptFuncExp ctermfg=148
 hi javaScriptEndColons ctermfg=15
+hi cConstant ctermfg=141
