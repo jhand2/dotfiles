@@ -100,10 +100,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# some more aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias rm='rm -i'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -139,4 +140,10 @@ if [ "$(hostname)" = "jordan-laptop" ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bash-scripts
 
+# Functions yo
+mkcdir ()
+{
+    mkdir -p -- "$1" && cd -P -- "$1"
+}

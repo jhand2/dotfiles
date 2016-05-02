@@ -1,4 +1,6 @@
 set nocompatible              " be iMproved, required
+
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -8,23 +10,35 @@ call vundle#begin()
 "Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'klen/python-mode'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 call vundle#end()
+filetype on
+
+let g:cpp_class_scope_highlight = 1
 
 "NERDTree config
 let NERDTreeQuitOnOpen=1
 map <C-n> :NERDTreeToggle<CR>
 
+"Powerline
+set laststatus=2
+
 " Python mode config
-let g:pymode_rope = 1
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_folding = 0
+"let g:pymode_python='python3'
+"let g:pymode_rope=0
+"let g:pymode_doc=0
+"let g:pymode_doc_key='K'
+let g:pymode_syntax=1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 0
 
 
@@ -35,6 +49,7 @@ set tabstop=4
 set expandtab
 filetype indent on
 
+" Pretty scroll/cursor stuff
 set cursorline
 set scrolloff=5
 
@@ -47,16 +62,15 @@ nnoremap <space> za
 nnoremap <silent> <F9> :!clear;python %<CR>
 
 "Maps jk to Escape for faster mode switching 
-imap jk <Esc>
 
 let mapleader=","
 
-"Sets white line numbers
-set number
-highlight LineNr ctermfg=white
+imap jk <Esc>
 
-"Adds indent when { + ENTER is pressed. Also closes curly brace
-inoremap {<CR> {<CR>}<C-o>O
+" Leader mappings
+noremap <leader>s :update<CR>
+noremap <leader>l :q<CR>
+nnoremap <leader>sl :wq<CR>
 
 "reconfigure vim window behavior
 nnoremap <C-J> <C-W><C-J>
@@ -68,14 +82,19 @@ set splitright
 
 filetype plugin on
 
-set t_Co=256
-
 "VIM theme
-set background=dark
 syntax enable
-"let g:rehash256 = 1
+set t_Co=256
+set background=dark
 colorscheme monokai
-"colorscheme molokai256
+
+"Sets white line numbers
+set number
+highlight LineNr ctermfg=white
+
+"let g:solarized_termcolors=256
+"colorscheme solarized
+
 
 "ctrl+shift+P shows the label for given syntax (i.e. cBlock)
 nmap <C-S-P> :call <SID>SynStack()<CR>
