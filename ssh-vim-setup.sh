@@ -1,5 +1,8 @@
 #!/bin/bash
-cp -r ./.vim/ ~
+if [ ! -d ~/.vim ]; then
+    mkdir .vim
+fi
+cp -r ./.vim ~
 cp ./.vim/vimrc ~/.vimrc
 cp ./.bashrc ~/.bashrc
 
