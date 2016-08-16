@@ -3,7 +3,7 @@ if [ ! -d ~/.vim ]; then
     mkdir .vim
 fi
 cp -r ./.vim ~
-cp ./.vim/vimrc ~/.vimrc
+ln -s ./.vim/vimrc ~/.vimrc
 cp ./.bashrc ~/.bashrc
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
