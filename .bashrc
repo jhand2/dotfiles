@@ -130,20 +130,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ "$(hostname)" = "jordan-laptop" ]; then
-    ## Added by the Heroku Toolbelt
-    export PATH="/usr/local/heroku/bin:$PATH"
-
-    # This needs to be placed before the virtualenvwrapper command
-    VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bash-scripts
+export GOPATH=$HOME/side-projects/go
+export PATH=$PATH:$GOPATH/bin
 
 # Functions yo
+
+# Make a directory in the current directory and then cd into that directory.
 mkcdir ()
 {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
+. /etc/profile.d/vte.sh

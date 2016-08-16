@@ -17,8 +17,19 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'klen/python-mode'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'fatih/vim-go'
 call vundle#end()
 filetype on
+
+" Golang highlighting
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 let g:cpp_class_scope_highlight = 1
 
@@ -30,17 +41,14 @@ map <C-n> :NERDTreeToggle<CR>
 set laststatus=2
 
 " Python mode config
-"let g:pymode_python='python3'
-"let g:pymode_rope=0
-"let g:pymode_doc=0
-"let g:pymode_doc_key='K'
+let g:pymode_rope = 0   "Turn off rope
+let g:pymode_python='python3'
 let g:pymode_syntax=1
-"let g:pymode_syntax_all = 1
-"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-"let g:pymode_syntax_space_errors = g:pymode_syntax_all
-"let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 0
-
+let g:pymode_indent = 1
+let g:pymode_doc = 0
+set completeopt=menu
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 
 "Configures tab behavior setlocal tabstop=4
 set shiftwidth=4
