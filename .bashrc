@@ -134,6 +134,8 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bash-scripts
 export GOPATH=$HOME/side-projects/go
 export PATH=$PATH:$GOPATH/bin
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 # Functions yo
 
