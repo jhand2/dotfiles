@@ -18,6 +18,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'klen/python-mode'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'fatih/vim-go'
+Plugin 'wlangstroth/vim-racket'
 call vundle#end()
 filetype on
 
@@ -51,11 +52,13 @@ set completeopt=menu
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 
 "Configures tab behavior setlocal tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal tabstop=4
 set expandtab
 filetype indent on
+
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Pretty scroll/cursor stuff
 set cursorline
