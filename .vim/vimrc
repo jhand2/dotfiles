@@ -19,8 +19,15 @@ Plugin 'klen/python-mode'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'fatih/vim-go'
 Plugin 'wlangstroth/vim-racket'
+Plugin 'KeitaNakamura/neodark.vim'
+Plugin 'muellan/am-colors'
+Plugin 'joshdick/onedark.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 filetype on
+
+autocmd FileType ruby set re=1 "Fixes syntax highlighting lag in ruby
 
 " Golang highlighting
 let g:go_fmt_command = "goimports"
@@ -58,7 +65,7 @@ setlocal tabstop=4
 set expandtab
 filetype indent on
 
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Pretty scroll/cursor stuff
 set cursorline
@@ -96,6 +103,16 @@ filetype plugin on
 "VIM theme
 syntax enable
 set t_Co=256
+if (empty($TMUX))
+    if (has("nvim"))
+        "For Neovim 0.1.3 and 0.1.4 <
+        "https://github.com/neovim/neovim/pull/2198 
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
 set background=dark
 colorscheme monokai
 
