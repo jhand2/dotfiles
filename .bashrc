@@ -146,5 +146,7 @@ mkcdir ()
 }
 
 # Set a stupid alsa setting for headphones to not suck
-amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
-. /etc/profile.d/vte.sh
+if [ "$DISPLAY" != "" ]; then
+    amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
+    . /etc/profile.d/vte.sh
+fi
