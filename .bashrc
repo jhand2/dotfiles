@@ -144,3 +144,7 @@ mkcdir ()
 {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
+
+# Set a stupid alsa setting for headphones to not suck
+amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
+. /etc/profile.d/vte.sh

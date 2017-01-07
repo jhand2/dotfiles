@@ -10,20 +10,18 @@ call vundle#begin()
 "Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 Plugin 'klen/python-mode'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'fatih/vim-go'
 Plugin 'wlangstroth/vim-racket'
-Plugin 'KeitaNakamura/neodark.vim'
-Plugin 'muellan/am-colors'
-Plugin 'joshdick/onedark.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'justinmk/vim-syntax-extra'
 call vundle#end()
 filetype on
 
@@ -133,3 +131,8 @@ function! <SID>SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
