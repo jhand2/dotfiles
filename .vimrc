@@ -23,6 +23,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'conormcd/matchindent.vim'
+Plugin 'sickill/vim-monokai'
 call vundle#end()
 filetype on
 
