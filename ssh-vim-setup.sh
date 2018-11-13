@@ -1,3 +1,5 @@
 #!/bin/bash
-cp ./.vim/vimrc ~/.vimrc
-cp ./.bashrc ~/.bashrc
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null && pwd  )"
+
+cp $DIR/.vim/.vimrc ~/.vimrc
+cp $DIR/.bashrc ~/.bashrc
