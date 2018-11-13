@@ -24,6 +24,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'conormcd/matchindent.vim'
 Plugin 'sickill/vim-monokai'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype on
 
