@@ -105,7 +105,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
-alias tmux='tmux -2'
+alias tdl='todolist'
+alias tmux='TERM=xterm-256color tmux -2'
+alias nca='cd ~/azcode/Azure-Compute-Move/src/Services/security/PKI/NativeCertAgent'
+alias apsdk='cd ~/azcode/Azure-Compute-Move/src/modules/APSDK.Library'
+alias xclip='xclip -se c -i'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -146,8 +150,3 @@ mkcdir ()
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-# Set a stupid alsa setting for headphones to not suck
-if [ "$DISPLAY" != "" ]; then
-    amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
-    . /etc/profile.d/vte.sh
-fi
