@@ -25,10 +25,17 @@ Plugin 'justinmk/vim-syntax-extra'
 Plugin 'conormcd/matchindent.vim'
 Plugin 'sickill/vim-monokai'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'pboettch/vim-cmake-syntax'
 call vundle#end()
 filetype on
 
 autocmd FileType ruby set re=1 "Fixes syntax highlighting lag in ruby
+
+" Markdown
+let g:markdown_enable_spell_checking = 0
+
+" ctags
+set tags=tags;/
 
 " Golang highlighting
 let g:go_fmt_command = "goimports"
@@ -42,11 +49,11 @@ let g:go_highlight_build_constraints = 1
 
 let g:cpp_class_scope_highlight = 1
 
-"NERDTree config
+" NERDTree
 let NERDTreeQuitOnOpen=1
 map <C-n> :NERDTreeToggle<CR>
 
-"Powerline
+" Powerline
 set laststatus=2
 
 " Python mode config
@@ -59,14 +66,18 @@ let g:pymode_doc = 0
 set completeopt=menu
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 
-"Configures tab behavior setlocal tabstop=4
+" Standard config
 setlocal shiftwidth=4
 setlocal softtabstop=4
 setlocal tabstop=4
 set expandtab
 filetype indent on
 
-"autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+let mapleader=","
+imap jk <Esc>
+
+" Use system clipboard
+set clipboard=unnamedplus
 
 " Pretty scroll/cursor stuff
 set cursorline
@@ -76,22 +87,16 @@ set scrolloff=5
 " code like a good little programmer
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
+"nnoremap <space> za
 
 nnoremap <silent> <F9> :!clear;python %<CR>
-
-"Maps jk to Escape for faster mode switching 
-
-let mapleader=","
-
-imap jk <Esc>
 
 " Leader mappings
 noremap <leader>s :update<CR>
 noremap <leader>l :q<CR>
 nnoremap <leader>sl :wq<CR>
 
-"reconfigure vim window behavior
+" Split behavior
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -101,7 +106,7 @@ set splitright
 
 filetype plugin on
 
-"VIM theme
+"Colors/theme
 syntax enable
 set t_Co=256
 if (empty($TMUX))
@@ -114,16 +119,14 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
-set background=dark
-colorscheme monokai
 
 "Sets white line numbers
 set number
 highlight LineNr ctermfg=white
 
-"let g:solarized_termcolors=256
-"colorscheme solarized
-
+" Theme
+set background=dark
+colorscheme monokai
 
 "ctrl+shift+P shows the label for given syntax (i.e. cBlock)
 nmap <C-S-P> :call <SID>SynStack()<CR>

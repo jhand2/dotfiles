@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null && pwd  )"
 
-cp ~/.vimrc/ $DIR/.vimrc
+cp ~/.vimrc $DIR/.vimrc
 cp ~/.tmux.conf $DIR/.tmux.conf
 cp ~/.bashrc $DIR/.bashrc
 
