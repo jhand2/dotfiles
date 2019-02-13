@@ -106,6 +106,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
 alias tdl='todolist'
+alias vim='vimx'
 alias tmux='TERM=xterm-256color tmux -2'
 alias nca='cd ~/azcode/Azure-Compute-Move/src/Services/security/PKI/NativeCertAgent'
 alias apsdk='cd ~/azcode/Azure-Compute-Move/src/modules/APSDK.Library'
@@ -139,6 +140,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bash-scripts
 export GOPATH=$HOME/side-projects/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export VISUAL=vim
 export EDITOR=$VISUAL
 
@@ -149,4 +151,9 @@ mkcdir ()
 {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
+
+if [ "$DISPLAY" != "" ] && [[ "$HOSTNAME" =~ "xps" ]]; then
+    amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
+    . /etc/profile.d/vte.sh
+fi
 
