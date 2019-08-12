@@ -26,6 +26,8 @@ Plugin 'conormcd/matchindent.vim'
 Plugin 'sickill/vim-monokai'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pboettch/vim-cmake-syntax'
+Plugin 'jhand2/vim-csharp'
+Plugin 'will133/vim-dirdiff'
 call vundle#end()
 filetype on
 
@@ -35,7 +37,7 @@ autocmd FileType ruby set re=1 "Fixes syntax highlighting lag in ruby
 let g:markdown_enable_spell_checking = 0
 
 " ctags
-set tags=tags;/
+set tags=tags;/,pytags;/
 
 " Golang highlighting
 let g:go_fmt_command = "goimports"
@@ -64,7 +66,7 @@ let g:pymode_options_colorcolumn = 0
 let g:pymode_indent = 1
 let g:pymode_doc = 0
 set completeopt=menu
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_checkers = []
 
 " Standard config
 setlocal shiftwidth=4
@@ -93,8 +95,10 @@ nnoremap <silent> <F9> :!clear;python %<CR>
 
 " Leader mappings
 noremap <leader>s :update<CR>
-noremap <leader>l :q<CR>
 nnoremap <leader>sl :wq<CR>
+
+noremap <leader>h <C-PageUp>
+noremap <leader>l <C-PageDown>
 
 " Split behavior
 nnoremap <C-J> <C-W><C-J>

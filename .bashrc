@@ -136,9 +136,11 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/lib
 export PATH=$PATH:$HOME/bash-scripts
-export GOPATH=$HOME/side-projects/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export VISUAL=vim
 export EDITOR=$VISUAL
 
@@ -150,3 +152,11 @@ mkcdir ()
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
+if [ -f "$HOME/.bashrc-priv" ]; then
+    . "$HOME/.bashrc-priv"
+fi
+
+
+export PATH=$PATH:/home/jordan/lib/vsts-cli/bin
+
+source '/home/jordan/lib/vsts-cli/vsts.completion'
