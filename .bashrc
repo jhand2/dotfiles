@@ -159,4 +159,11 @@ fi
 
 export PATH=$PATH:/home/jordan/lib/vsts-cli/bin
 
-source '/home/jordan/lib/vsts-cli/vsts.completion'
+if [ "$DISPLAY" != "" ] && [[ "$HOSTNAME" =~ "xps" ]]; then
+    amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
+    . /etc/profile.d/vte.sh
+fi
+
+if [ -f '/home/jordan/lib/vsts-cli/vsts.completion' ]; then
+    source '/home/jordan/lib/vsts-cli/vsts.completion'
+fi
