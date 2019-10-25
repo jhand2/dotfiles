@@ -10,3 +10,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Install plugins
 vim -c PluginInstall -c :q -c :q
+
+# What else should I install?
+# - vim
+# - tmux
+# - tmux plugin manager

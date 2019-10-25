@@ -106,7 +106,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
 alias tdl='todolist'
-alias vim='vimx'
 alias tmux='TERM=xterm-256color tmux -2'
 alias nca='cd ~/azcode/Azure-Compute-Move/src/Services/security/PKI/NativeCertAgent'
 alias apsdk='cd ~/azcode/Azure-Compute-Move/src/modules/APSDK.Library'
@@ -159,9 +158,5 @@ fi
 
 
 export PATH=$PATH:/home/jordan/lib/vsts-cli/bin
-source '/home/jordan/lib/vsts-cli/vsts.completion'
 
-if [ "$DISPLAY" != "" ] && [[ "$HOSTNAME" =~ "xps" ]]; then
-    amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
-    . /etc/profile.d/vte.sh
-fi
+source '/home/jordan/lib/vsts-cli/vsts.completion'
