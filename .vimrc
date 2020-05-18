@@ -28,6 +28,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pboettch/vim-cmake-syntax'
 Plugin 'jhand2/vim-csharp'
 Plugin 'will133/vim-dirdiff'
+Plugin 'PProvost/vim-ps1'
 call vundle#end()
 filetype on
 
