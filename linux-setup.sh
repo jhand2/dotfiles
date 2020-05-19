@@ -10,7 +10,7 @@ PACKAGES="vim-gnome tmux git"
 if hash apt-get 2>/dev/null; then
     # Install packages on debian/ubuntu
     sudo apt-get install -y $PACKAGES
-elif hash dnf 2>/dev/null
+elif hash dnf 2>/dev/null; then
     # Install packages on fedora/centos
     sudo dnf install -y $PACKAGES
 fi
