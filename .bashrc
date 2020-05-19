@@ -160,7 +160,10 @@ fi
 export PATH=$PATH:/home/jordan/lib/vsts-cli/bin
 
 if [ "$DISPLAY" != "" ] && [[ "$HOSTNAME" =~ "xps" ]]; then
+    # Fix headphone issue on my xps-13
     amixer -c 0 cset iface=MIXER,name='Headphone Mic Boost Volume' 22% > /dev/null
     . /etc/profile.d/vte.sh
-
+#elif [ "$DISPLAY" != "" ] && [[ "$HOSTNAME" =~ "sb2" ]]; then
+    # Fix headphone issue on my surface book 2
+    # amixer -c 0 sset 'Auto-Mute Mode' Disabled && sudo alsactl store
 fi

@@ -18,13 +18,16 @@ Set-PSReadlineOption -EditMode vi -BellStyle None
 
 # Install Chocolatey packages
 choco install -y vim git curl
-choco install -y win32-openssh -params "/SSHServerFeature /KeyBasedAuthenticationFeature"
 
 # Enable some windows features
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
 Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+
+Start-Service sshd
+Set-Service -Name sshd -StartupType 'Automatic'
 
 # Generate RSA keypair for ssh
 ssh-keygen -t rsa -b 4096 -C $email
